@@ -19,4 +19,3 @@ func Router(middlewares ...mux.MiddlewareFunc) http.Handler {
 
 	return router
 }
-

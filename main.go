@@ -8,6 +8,7 @@ import (
 )
 
 func main() {
+	log.Println("!! tsubaki !!")
 	var command cmd.Command
 
 	switch arguments := os.Args; arguments[1] {
