@@ -1,5 +1,5 @@
-name: master
-run-name: master
+name: pull-request
+run-name: pull-request
 on: [pull_request] 
 jobs:
   test:
@@ -13,5 +13,10 @@ jobs:
   build:
     needs: [test]
     runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
+        with:
+          go-version: '1.19.1'
       - run: make build
