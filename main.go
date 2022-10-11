@@ -4,22 +4,21 @@ import (
 	"log"
 	"os"
 
-	"github.com/ksahli/tsubaki/cmd/initialize"
+	"github.com/ksahli/tsubaki/cmd"
 )
 
-type Command interface {
-	Execute() error
-}
-
 func main() {
-	var command Command
-	arguments := os.Args
-	switch arguments[1] {
+	var command cmd.Command
+
+	switch arguments := os.Args; arguments[1] {
 	case "initialize":
-		command = initialize.New(arguments[1:])
+		command = cmd.New(arguments[1:])
+	case "start":
+		command = cmd.New(arguments[1:])
 	default:
 		log.Fatal("no command specified")
 	}
+
 	if err := command.Execute(); err != nil {
 		log.Fatal(err)
 	}

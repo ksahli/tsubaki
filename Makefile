@@ -13,7 +13,7 @@ verify:
 	go vet ./...
 
 test:
-	go test ./... -coverprofile coverage.out
+	go test ./pkg/... -coverprofile coverage.out
 
 install:
 	go install
